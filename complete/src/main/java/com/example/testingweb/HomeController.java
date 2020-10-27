@@ -12,9 +12,10 @@ public class HomeController {
 	@RequestMapping("/")
 	public @ResponseBody
 	String greeting(
-			@RequestParam(defaultValue = "Default", required = false) String param) {
+			@RequestParam(defaultValue = "Default", required = false) String param,
+			@RequestParam(defaultValue = "", required = false) String ticket) {
 
-		return String.format("home%s", param);
+		return String.format("home %s %s", param, ticket);
 	}
 
 }
