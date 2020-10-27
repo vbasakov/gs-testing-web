@@ -9,10 +9,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ProxyController {
 
 	@RequestMapping("/proxy")
-	public @ResponseBody String greeting(
+	public String proxy(
 			@RequestParam(defaultValue = "Default", required = false) String param) {
 
-		return "proxy" + param;
+		return "forward:/greetin?" + param;
+	}
+
+	@RequestMapping("/greetin")
+	public @ResponseBody	String greeting(
+			@RequestParam(defaultValue = "Default", required = false) String param) {
+
+		return "greeting " + param;
 	}
 
 }
