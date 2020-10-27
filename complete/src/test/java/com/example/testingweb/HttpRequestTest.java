@@ -51,4 +51,12 @@ public class HttpRequestTest {
 		String response = this.restTemplate.getForObject(url, String.class);
 		assertThat(response).contains("proxy" + param);
 	}
+
+	@Test
+	public void zuul() {
+		String BASE_URL = "http://localhost:" + port + "/";
+		String url = BASE_URL + "routes";
+		String response = this.restTemplate.getForObject(url, String.class);
+		System.out.println(response);
+	}
 }
