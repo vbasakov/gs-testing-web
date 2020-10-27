@@ -9,18 +9,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
 
-	@Value("${app.name}")
-	String appName;
-
-	@Value("${spring.application.name}")
-	String appFullName;
-
 	@RequestMapping("/")
 	public @ResponseBody
 	String greeting(
 			@RequestParam(defaultValue = "Default", required = false) String param) {
 
-		return String.format("%s%n%s%nhome%s", appName, appFullName, param);
+		return String.format("home%s", param);
 	}
 
 }
